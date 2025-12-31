@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   useNavigate,
@@ -62,24 +62,14 @@ function Pay() {
 }
 
 function App() {
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const path = urlParams.get("path");
-    if (path) {
-      history.replaceState(null, "", path);
-    }
-  }, []);
-
-  const basename = import.meta.env.BASE_URL;
-
   return (
-    <BrowserRouter basename={basename}>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
