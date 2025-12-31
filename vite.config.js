@@ -5,6 +5,6 @@ module.exports = async () => {
   const pluginReact = await import("@vitejs/plugin-react");
   return defineConfig({
     plugins: [pluginReact.default()],
-    base: process.env.NODE_ENV === "production" ? "/myupi/" : "/",
+    base: process.env.NODE_ENV === "production" ? "./" : "/",
   });
 };
