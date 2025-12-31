@@ -34,7 +34,8 @@ export default function UPIForm({ onGenerate, onLiveChange, initial }) {
 
   const deepLink = () => {
     const url = new URL(window.location.href);
-    const base = url.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "");
+    const pathname = url.pathname || "/";
+    const base = pathname.replace(/\/(pay|index\.html)?$/, "").replace(/\/$/, "");
     url.pathname = (base ? base : "") + "/pay";
     if (pa && pa.toString().trim() !== "") url.searchParams.set("pa", pa);
     if (pn && pn.toString().trim() !== "") url.searchParams.set("pn", pn);
