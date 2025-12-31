@@ -64,7 +64,11 @@ export default function PaymentScreen({ upiData = {}, onBack }) {
       <div className="mt-10 text-center text-sm text-gray-500">
         Create UPI payment links using{" "}
         <a
-          href={window.location.origin}
+          href={`${window.location.origin}${
+            window.location.pathname.split("/")[1]
+              ? `/${window.location.pathname.split("/")[1]}/`
+              : ""
+          }`}
           className="font-semibold text-black underline underline-offset-2"
         >
           MyUpi

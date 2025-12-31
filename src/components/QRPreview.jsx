@@ -140,7 +140,11 @@ export default function QRPreview({ upiData = {}, onOpenPayment }) {
             <div className="text-center mt-4">
               <a
                 className="text-sm text-gray-500"
-                href={window.location.origin}
+                href={`${window.location.origin}${
+                  window.location.pathname.split("/")[1]
+                    ? `/${window.location.pathname.split("/")[1]}/`
+                    : ""
+                }`}
               >
                 Create UPI payment links using{" "}
                 <span className="font-semibold text-black underline underline-offset-2">
